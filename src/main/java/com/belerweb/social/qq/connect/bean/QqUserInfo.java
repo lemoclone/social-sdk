@@ -8,11 +8,11 @@ import com.belerweb.social.bean.Gender;
 import com.belerweb.social.bean.JsonBean;
 import com.belerweb.social.bean.Result;
 
-public class User extends JsonBean {
+public class QqUserInfo extends JsonBean {
 
-  public User() {}
+  public QqUserInfo() {}
 
-  private User(JSONObject jsonObject) {
+  private QqUserInfo(JSONObject jsonObject) {
     super(jsonObject);
   }
 
@@ -410,11 +410,11 @@ public class User extends JsonBean {
     this.historyEndTime = historyEndTime;
   }
 
-  public static User parse(JSONObject jsonObject) {
+  public static QqUserInfo parse(JSONObject jsonObject) {
     if (jsonObject == null) {
       return null;
     }
-    User obj = new User(jsonObject);
+    QqUserInfo obj = new QqUserInfo(jsonObject);
     obj.nickname = Result.toString(jsonObject.opt("nickname"));
     obj.figureUrl = Result.toString(jsonObject.opt("figureurl"));
     obj.figureUrl1 = Result.toString(jsonObject.opt("figureurl_1"));

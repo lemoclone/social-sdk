@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
 import com.belerweb.social.TestConfig;
 import com.belerweb.social.bean.Result;
 
-public class UserTest extends TestConfig {
+public class QqUserInfoTest extends TestConfig {
 
-  final static Logger logger = LoggerFactory.getLogger(UserTest.class);
+  final static Logger logger = LoggerFactory.getLogger(QqUserInfoTest.class);
 
   @Test
   public void testSnsapiUserInfo() {

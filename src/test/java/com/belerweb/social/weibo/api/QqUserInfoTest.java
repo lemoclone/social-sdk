@@ -12,9 +12,9 @@ import com.belerweb.social.TestConfig;
 import com.belerweb.social.bean.Result;
 import com.belerweb.social.weibo.bean.UserCounts;
 
-public class UserTest extends TestConfig {
+public class QqUserInfoTest extends TestConfig {
 
-  final static Logger logger = LoggerFactory.getLogger(UserTest.class);
+  final static Logger logger = LoggerFactory.getLogger(QqUserInfoTest.class);
 
   @Test
   public void testShow() {

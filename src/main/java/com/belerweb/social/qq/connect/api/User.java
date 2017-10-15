@@ -3,6 +3,7 @@ package com.belerweb.social.qq.connect.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.belerweb.social.qq.connect.bean.QqUserInfo;
 import org.apache.http.NameValuePair;
 
 import com.belerweb.social.API;
@@ -26,8 +27,8 @@ public final class User extends API {
    * @param openid 用户的ID，与QQ号码一一对应。
    *        可通过调用https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN 来获取。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getUserInfo(String accessToken,
-      String openid) {
+  public Result<QqUserInfo> getUserInfo(String accessToken,
+                                        String openid) {
     return getUserInfo(accessToken, connect.getClientId(), openid);
   }
 
@@ -41,15 +42,15 @@ public final class User extends API {
    * @param openid 用户的ID，与QQ号码一一对应。
    *        可通过调用https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN 来获取。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getUserInfo(String accessToken,
-      String oAuthConsumerKey, String openid) {
+  public Result<QqUserInfo> getUserInfo(String accessToken,
+                                        String oAuthConsumerKey, String openid) {
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     connect.addParameter(params, "access_token", accessToken);
     connect.addParameter(params, "oauth_consumer_key", oAuthConsumerKey);
     connect.addParameter(params, "openid", openid);
     connect.addNotNullParameter(params, "format", "json");
     String json = connect.get("https://graph.qq.com/user/get_user_info", params);
-    return Result.parse(json, com.belerweb.social.qq.connect.bean.User.class);
+    return Result.parse(json, QqUserInfo.class);
   }
 
   /**
@@ -62,15 +63,15 @@ public final class User extends API {
    * @param openid 用户的ID，与QQ号码一一对应。
    *        可通过调用https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN 来获取。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getSimpleUserInfo(String accessToken,
-      String oAuthConsumerKey, String openid) {
+  public Result<QqUserInfo> getSimpleUserInfo(String accessToken,
+                                              String oAuthConsumerKey, String openid) {
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     connect.addParameter(params, "access_token", accessToken);
     connect.addParameter(params, "oauth_consumer_key", oAuthConsumerKey);
     connect.addParameter(params, "openid", openid);
     connect.addNotNullParameter(params, "format", "json");
     String json = connect.get("https://openmobile.qq.com/user/get_simple_userinfo", params);
-    return Result.parse(json, com.belerweb.social.qq.connect.bean.User.class);
+    return Result.parse(json, QqUserInfo.class);
   }
 
   /**
@@ -83,8 +84,8 @@ public final class User extends API {
    * @param accessToken 可通过使用Authorization_Code获取Access_Token 或来获取。access_token有3个月有效期。
    * @param openid 用户的ID，与QQ号码一一对应。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getVipInfo(String accessToken,
-      String openid) {
+  public Result<QqUserInfo> getVipInfo(String accessToken,
+                                       String openid) {
     return getVipInfo(accessToken, connect.getClientId(), openid);
   }
 
@@ -99,15 +100,15 @@ public final class User extends API {
    * @param oAuthConsumerKey 申请QQ登录成功后，分配给应用的appid
    * @param openid 用户的ID，与QQ号码一一对应。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getVipInfo(String accessToken,
-      String oAuthConsumerKey, String openid) {
+  public Result<QqUserInfo> getVipInfo(String accessToken,
+                                       String oAuthConsumerKey, String openid) {
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     connect.addParameter(params, "access_token", accessToken);
     connect.addParameter(params, "oauth_consumer_key", oAuthConsumerKey);
     connect.addParameter(params, "openid", openid);
     connect.addParameter(params, "format", "json");
     String json = connect.get("https://graph.qq.com/user/get_vip_info", params);
-    return Result.parse(json, com.belerweb.social.qq.connect.bean.User.class);
+    return Result.parse(json, QqUserInfo.class);
   }
 
   /**
@@ -120,8 +121,8 @@ public final class User extends API {
    * @param accessToken 可通过使用Authorization_Code获取Access_Token 或来获取。access_token有3个月有效期。
    * @param openid 用户的ID，与QQ号码一一对应。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getVipRichInfo(String accessToken,
-      String openid) {
+  public Result<QqUserInfo> getVipRichInfo(String accessToken,
+                                           String openid) {
     return getVipRichInfo(connect.getClientId(), accessToken, openid);
   }
 
@@ -136,15 +137,15 @@ public final class User extends API {
    * @param accessToken 可通过使用Authorization_Code获取Access_Token 或来获取。access_token有3个月有效期。
    * @param openid 用户的ID，与QQ号码一一对应。
    */
-  public Result<com.belerweb.social.qq.connect.bean.User> getVipRichInfo(String oAuthConsumerKey,
-      String accessToken, String openid) {
+  public Result<QqUserInfo> getVipRichInfo(String oAuthConsumerKey,
+                                           String accessToken, String openid) {
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     connect.addParameter(params, "oauth_consumer_key", oAuthConsumerKey);
     connect.addParameter(params, "access_token", accessToken);
     connect.addParameter(params, "openid", openid);
     connect.addParameter(params, "format", "json");
     String json = connect.get("https://graph.qq.com/user/get_vip_rich_info", params);
-    return Result.parse(json, com.belerweb.social.qq.connect.bean.User.class);
+    return Result.parse(json, QqUserInfo.class);
   }
 
 }

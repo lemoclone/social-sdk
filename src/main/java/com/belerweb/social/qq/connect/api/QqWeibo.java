@@ -17,9 +17,9 @@ import com.belerweb.social.qq.connect.bean.WeiboUser;
 /**
  * 腾讯微博API
  */
-public final class Weibo extends API {
+public final class QqWeibo extends API {
 
-  protected Weibo(QQConnect connect) {
+  protected QqWeibo(QQConnect connect) {
     super(connect);
   }
 
